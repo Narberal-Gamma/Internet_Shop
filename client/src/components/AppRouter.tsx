@@ -1,15 +1,16 @@
-import { FC, useState } from "react";
+import { FC, useContext, } from "react";
 import { authRoutes, publicRoutes } from "../routes";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AllRoutes } from "../consts/consts";
+import { Context } from "../main";
 
 const AppRouter: FC = () => {
 
-    const [isAuth, setIsAuth] = useState<boolean>(true)
-
+    const {user} = useContext(Context)
+    console.log(user)
     return (
         <Routes>
-            {isAuth && authRoutes.map(route =>
+            {user.isAuth && authRoutes.map(route =>
                 <Route path={route.path} element={<route.element />} key={route.path} />
             )}
             {publicRoutes.map(route =>

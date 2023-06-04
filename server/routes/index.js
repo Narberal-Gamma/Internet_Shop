@@ -1,5 +1,5 @@
 const Router = require('express')
-const router = Router()
+const router = new Router()
 
 const userRouter = require('./userRouter')
 const deviceRouter = require('./deviceRouter')

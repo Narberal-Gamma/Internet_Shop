@@ -1,8 +1,9 @@
 import { FC, useContext } from "react";
 import { Context } from "../main";
 import DeviceItem from "./DeviceItem";
+import { observer } from "mobx-react-lite";
 
-const DeviceList: FC = () => {
+const DeviceList: FC = observer(() => {
 
     const { devices } = useContext(Context)
     
@@ -13,6 +14,6 @@ const DeviceList: FC = () => {
             )}
         </div>
     )
-}
+})
 
 export default DeviceList

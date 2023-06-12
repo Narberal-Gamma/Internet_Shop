@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import { AllRoutes } from "../consts/consts";
 import { Context } from "../main";
 import { observer } from "mobx-react-lite";
+import { IUserInfo } from "../types/user";
 
 const NavBar: FC = observer(() => {
 
@@ -14,8 +15,9 @@ const NavBar: FC = observer(() => {
     const navigate = useNavigate()
 
     const logOut = () => {
-        // user.setUser({})
+        user.setUser({} as IUserInfo)
         user.setIsAuth(false)
+        localStorage.removeItem('token')
     }
     
     return (
@@ -41,8 +43,7 @@ const NavBar: FC = observer(() => {
                     </Nav>
                     :
                     <Nav className="ml-auto">
-                        <Button variant={"outline-light"} onClick={() => user.setIsAuth(true)}>Авторизация</Button>
-                        {/* <Button variant={"outline-light"} onClick={() => navigate(AllRoutes.LOGIN_ROUTE)}>Авторизация</Button> */}
+                        <Button variant={"outline-light"} onClick={() => navigate(AllRoutes.LOGIN_ROUTE)}>Авторизация</Button>
                     </Nav>
                 }
             </Container>

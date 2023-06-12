@@ -2,12 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { IType } from "../types/type";
 
 export default class TypeStore {
-    _types: IType[] = [
-        { id: 1, name: 'Холодильник' },
-        { id: 2, name: 'Компютер' },
-        { id: 3, name: 'Стиралка' },
-        { id: 4, name: 'Телефон' },
-    ];
+    _types: IType[] = [];
     _selectedType: IType = {} as IType
 
     constructor() {

@@ -1,5 +1,5 @@
 export interface IDeviceInfo {
-    number: number,
+    id: number,
     title: string,
     description: string
 }

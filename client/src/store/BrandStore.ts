@@ -2,12 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { IBrand } from "../types/brand";
 
 export default class BrandStore {
-    _brands: IBrand[] = [
-        { id: 1, name: 'Samsung' },
-        { id: 2, name: 'Apple' },
-        { id: 3, name: 'LG' },
-        { id: 4, name: 'Asus' },
-    ];
+    _brands: IBrand[] = [];
     _selectedBrand: IBrand = {} as IBrand
 
     constructor() {

@@ -1,7 +1,7 @@
 import { $host, $authHost } from '.'
 import { IType } from '../types/type'
 
-export const createType = async (name: string): Promise<IType> => {
+export const createType = async (name: IType): Promise<IType> => {
     const { data } = await $authHost.post<IType>('/api/type/', name) 
     return data
 }

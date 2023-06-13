@@ -2,8 +2,8 @@ import { $host, $authHost } from '.'
 import { IAxiosDeviceResponse } from '../types/axios'
 import { IDevice } from '../types/device'
 
-export const createDevice = async (name: string): Promise<IDevice> => {
-    const { data } = await $authHost.post<IDevice>('/api/device/', name) 
+export const createDevice = async (device: any): Promise<IDevice> => {
+    const { data } = await $authHost.post<IDevice>('/api/device/', device) 
     return data
 }
 

@@ -4,7 +4,9 @@ export interface IDevice {
     id: number,
     name: string,
     price: number,
-    rating: number,
-    img: string,
+    rating?: number,
+    img: File,
+    typeId?: string,
+    brandId?: string,
     info?: IDeviceInfo[]
 }

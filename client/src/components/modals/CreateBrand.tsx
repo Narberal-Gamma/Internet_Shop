@@ -1,8 +1,17 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { IModal } from "../../types/modal";
+import { createBrand } from "../../http/brandAPI";
 
 const CreateBrand: FC<IModal> = ({ show, onHide }) => {
+
+    const [value, setValue] = useState('')
+
+    const addBrand = () => {
+        createBrand({ name: value }).then(data => setValue(''))
+        onHide()
+    }
+
     return (
         <Modal
             show={show}
@@ -17,14 +26,16 @@ const CreateBrand: FC<IModal> = ({ show, onHide }) => {
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Control 
-                        placeholder="Введите название бренда"                    
+                    <Form.Control
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        placeholder="Введите название бренда"
                     />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant={"outline-danger"} onClick={onHide}>Закрыть</Button>
-                <Button variant={"outline-success"} onClick={onHide}>Добавить</Button>
+                <Button variant={"outline-success"} onClick={addBrand}>Добавить</Button>
             </Modal.Footer>
         </Modal>
     )

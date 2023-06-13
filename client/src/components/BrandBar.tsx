@@ -5,14 +5,17 @@ import { Card } from "react-bootstrap";
 
 const BrandBar: FC = observer(() => {
 
-    const { brands } = useContext(Context)
+    const { brands, devices } = useContext(Context)
 
     return (
         <div className="d-flex flex-wrap">
             {brands.brands.map(brand =>
                 <Card
                     border={brand.id === brands.selectedBrand.id ? 'danger' : '#dee2e6'}
-                    onClick={() => brands.setSelectedBrand(brand)}
+                    onClick={() => {
+                        brands.setSelectedBrand(brand)
+                        devices.setPage(1)
+                    }}
                     key={brand.id}
                     className="p-2"
                     style={{marginRight: 5, marginBottom: 5, cursor: 'pointer'}}

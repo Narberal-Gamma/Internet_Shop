@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 const TypeBar: FC = observer(() => {
 
-    const { types } = useContext(Context)
+    const { types, devices } = useContext(Context)
 
     return (
         <ListGroup>
@@ -13,7 +13,10 @@ const TypeBar: FC = observer(() => {
                 <ListGroup.Item
                     style={{ cursor: 'pointer' }}
                     active={type.id === types.selectedType.id}
-                    onClick={() => types.setSelectedType(type)}
+                    onClick={() => {
+                        types.setSelectedType(type)
+                        devices.setPage(1)
+                    }}
                     key={type.id}
                 >
                     {type.name}
